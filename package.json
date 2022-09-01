@@ -1,0 +1,21 @@
+{
+  "name": "@lzy1960/eslint-config-monorepo",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "author": "lzy1960",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.23.0"
+  }
+}
