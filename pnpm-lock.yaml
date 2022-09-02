@@ -4,15 +4,23 @@ importers:
 
   .:
     specifiers:
+      '@lzy1960/eslint-config': '*'
       '@typescript-eslint/eslint-plugin': ^5.36.1
       '@typescript-eslint/parser': ^5.36.1
       bumpp: ^8.2.1
       eslint: ^8.23.0
     devDependencies:
+      '@lzy1960/eslint-config': link:packages/all
       '@typescript-eslint/eslint-plugin': 5.36.1_wyxuyzvlfep3lsyoibc4fosfq4
       '@typescript-eslint/parser': 5.36.1_eslint@8.23.0
       bumpp: 8.2.1
       eslint: 8.23.0
+
+  packages/all:
+    specifiers:
+      '@lzy1960/eslint-config-basic': workspace:*
+    devDependencies:
+      '@lzy1960/eslint-config-basic': link:../basic
 
   packages/basic:
     specifiers: {}
