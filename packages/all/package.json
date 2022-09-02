@@ -10,7 +10,7 @@
     "eslint-config"
   ],
   "devDependencies": {
-    "@lzy1960/eslint-config-basic": "workplace:*"
+    "@lzy1960/eslint-config-basic": "workspace:*"
   },
   "author": "lzy1960",
   "license": "MIT"
