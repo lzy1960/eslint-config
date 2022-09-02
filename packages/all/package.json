@@ -3,14 +3,12 @@
   "version": "0.0.5",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "eslint-config"
   ],
   "devDependencies": {
-    "@lzy1960/eslint-config-basic": "workspace:*"
+    "@lzy1960/eslint-config-basic": "workspace:*",
+    "@lzy1960/eslint-config-vue": "workspace:*"
   },
   "author": "lzy1960",
   "license": "MIT"
