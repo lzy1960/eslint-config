@@ -1,0 +1,14 @@
+{
+  "name": "@lzy1960/eslint-config-typescript",
+  "version": "0.0.7",
+  "description": "",
+  "main": "index.js",
+  "keywords": [
+    "eslint-config"
+  ],
+  "dependencies": {
+    "@lzy1960/eslint-config-basic": "workspace:*"
+  },
+  "author": "lzy1960",
+  "license": "MIT"
+}
