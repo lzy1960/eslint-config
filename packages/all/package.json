@@ -6,7 +6,7 @@
   "keywords": [
     "eslint-config"
   ],
-  "devDependencies": {
+  "dependencies": {
     "@lzy1960/eslint-config-basic": "workspace:*",
     "@lzy1960/eslint-config-vue": "workspace:*"
   },
