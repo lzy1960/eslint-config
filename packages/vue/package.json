@@ -10,6 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "eslint-plugin-vue": "^9.4.0",
-    "@lzy1960/eslint-config-basic": "workspace:*"
+    "@lzy1960/eslint-config-typescript": "workspace:*"
   }
 }

@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@lzy1960/eslint-config': '*'
       bumpp: ^8.2.1
-      eslint: ^8.23.1
+      eslint: ^8.23.0
       typescript: ^4.8.3
     devDependencies:
       '@lzy1960/eslint-config': link:packages/all
@@ -16,8 +16,8 @@ importers:
 
   packages/all:
     specifiers:
-      '@lzy1960/eslint-config-basic': workspace:0.0.7
-      '@lzy1960/eslint-config-vue': workspace:0.0.7
+      '@lzy1960/eslint-config-basic': workspace:*
+      '@lzy1960/eslint-config-vue': workspace:*
     dependencies:
       '@lzy1960/eslint-config-basic': link:../basic
       '@lzy1960/eslint-config-vue': link:../vue
@@ -30,18 +30,18 @@ importers:
 
   packages/typescript:
     specifiers:
-      '@lzy1960/eslint-config-basic': workspace:0.0.7
-      '@typescript-eslint/eslint-plugin': ^5.37.0
+      '@lzy1960/eslint-config-basic': workspace:*
+      '@typescript-eslint/eslint-plugin': ^5.36.1
     dependencies:
       '@lzy1960/eslint-config-basic': link:../basic
       '@typescript-eslint/eslint-plugin': 5.37.0
 
   packages/vue:
     specifiers:
-      '@lzy1960/eslint-config-basic': workspace:0.0.7
+      '@lzy1960/eslint-config-typescript': workspace:*
       eslint-plugin-vue: ^9.4.0
     dependencies:
-      '@lzy1960/eslint-config-basic': link:../basic
+      '@lzy1960/eslint-config-typescript': link:../typescript
       eslint-plugin-vue: 9.4.0
 
 packages:
