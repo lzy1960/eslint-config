@@ -15,9 +15,8 @@
   "license": "MIT",
   "devDependencies": {
     "@lzy1960/eslint-config": "*",
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.36.1",
     "bumpp": "^8.2.1",
-    "eslint": "^8.23.0"
+    "eslint": "^8.23.0",
+    "typescript": "^4.8.3"
   }
 }

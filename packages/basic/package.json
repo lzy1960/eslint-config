@@ -7,5 +7,8 @@
   ],
   "author": "lzy1960",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "eslint-plugin-import": "^2.26.0"
+  }
 }
