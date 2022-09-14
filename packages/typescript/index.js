@@ -1,4 +1,7 @@
 module.exports = {
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+  },
   extends: [
     '@lzy1960/basic',
     'plugin:import/typescript',
