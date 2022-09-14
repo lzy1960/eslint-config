@@ -1,6 +1,6 @@
 {
   "name": "@lzy1960/eslint-config-monorepo",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "",
   "private": true,
   "scripts": {
