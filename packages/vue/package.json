@@ -9,7 +9,10 @@
   "author": "lzy1960",
   "license": "MIT",
   "dependencies": {
-    "eslint-plugin-vue": "^9.4.0",
-    "@lzy1960/eslint-config-typescript": "workspace:*"
+    "@lzy1960/eslint-config-typescript": "workspace:*",
+    "eslint-plugin-vue": "^9.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0"
   }
 }

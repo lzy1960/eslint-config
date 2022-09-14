@@ -16,7 +16,7 @@
   "devDependencies": {
     "@lzy1960/eslint-config": "*",
     "bumpp": "^8.2.1",
-    "eslint": "^8.23.0",
+    "eslint": "^8.23.1",
     "typescript": "^4.8.3"
   }
 }

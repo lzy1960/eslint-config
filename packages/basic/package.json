@@ -10,5 +10,8 @@
   "description": "",
   "dependencies": {
     "eslint-plugin-import": "^2.26.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0"
   }
 }
