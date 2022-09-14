@@ -8,7 +8,8 @@
   ],
   "dependencies": {
     "@lzy1960/eslint-config-basic": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.36.1"
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.37.0"
   },
   "author": "lzy1960",
   "license": "MIT"
