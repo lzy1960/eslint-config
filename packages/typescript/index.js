@@ -14,5 +14,11 @@ module.exports = {
     '@typescript-eslint/keyword-spacing': ['error', { before: true, after: true }],
     'brace-style': 'off',
     '@typescript-eslint/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    'object-curly-spacing': 'off',
+    '@typescript-eslint/object-curly-spacing': ['error', 'always'],
+    'comma-spacing': 'off',
+    '@typescript-eslint/comma-spacing': ['error', { before: false, after: true }],
+    'keyword-spacing': 'off',
+    '@typescript-eslint/keyword-spacing': ['error', { before: true, after: true }],
   },
 }

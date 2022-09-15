@@ -10,7 +10,12 @@ module.exports = {
   rules: {
     semi: ['error', 'never'],
     quotes: ['error', 'single'],
-    indent: ['error', 2],
+    indent: ['error', 2, { SwitchCase: 1 }],
+    'keyword-spacing': ['error', { before: true, after: true }],
+    'comma-spacing': ['error', { before: false, after: true }],
+    'arrow-spacing': ['error', { before: true, after: true }],
+    'array-bracket-spacing': ['error', 'never'],
+    'object-curly-spacing': ['error', 'always'],
     'space-before-function-paren': ['error', 'always'],
     'no-trailing-spaces': 'error',
     'no-var': 'error',
