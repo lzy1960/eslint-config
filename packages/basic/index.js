@@ -55,6 +55,6 @@ module.exports = {
       ],
       allowSamePrecedence: true,
     }],
-    'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+    'brace-style': ['error', '1tbs', { allowSingleLine: true }],
   },
 }

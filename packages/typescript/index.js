@@ -12,5 +12,7 @@ module.exports = {
     '@typescript-eslint/semi': ['error', 'never'],
     'keyword-spacing': 'off',
     '@typescript-eslint/keyword-spacing': ['error', { before: true, after: true }],
+    'brace-style': 'off',
+    '@typescript-eslint/brace-style': ['error', '1tbs', { allowSingleLine: true }],
   },
 }
