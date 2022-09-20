@@ -1,0 +1,27 @@
+{
+  "name": "eslint-plugin-lzy1960",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "build": "rimraf dist & unbuild",
+    "stub": "unbuild --stub",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [],
+  "author": "lzy1960",
+  "license": "MIT",
+  "devDependencies": {
+    "unbuild": "^0.8.11",
+    "vitest": "^0.23.4"
+  },
+  "dependencies": {
+    "@typescript-eslint/utils": "^5.38.0"
+  }
+}

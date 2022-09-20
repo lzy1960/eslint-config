@@ -4,8 +4,17 @@ module.exports = {
     browser: true,
     node: true,
   },
+  ignorePatterns: [
+    '*.d.ts',
+    'dist',
+    'LICENSE*',
+    'package-lock.json',
+    'pnpm-lock.yaml',
+    'yarn.lock',
+  ],
   plugins: [
     'import',
+    'lzy1960',
   ],
   rules: {
     semi: ['error', 'never'],
@@ -61,5 +70,8 @@ module.exports = {
       allowSamePrecedence: true,
     }],
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
+
+    // lzy1960 plugin
+    'lzy1960/object-shorthand-top': 'error',
   },
 }

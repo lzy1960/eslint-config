@@ -21,6 +21,22 @@
 - import 提升
 - var 自动转换为 let 或 const
 - 定义函数的名称和括号中间添加空格，便于搜索
+- **专属插件：对象简写的属性必须放在对象的最上方，例如:**
+  ```js
+  // 错误
+  // Shorthand attribute must be the top
+  const testObj = {
+    hobby,
+    foo: 'foo',
+    obj,
+  }
+  // 正确
+  const testObj = {
+    obj,
+    hobby,
+    foo: 'foo',
+  }
+  ```
 
 > 目前仅添加了我日常使用到的配置，待完善
 

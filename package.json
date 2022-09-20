@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
-    "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish --access public"
+    "test": "pnpm -r test",
+    "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish --access public",
+    "prepare": "pnpm -r run stub"
   },
   "keywords": [
     "eslint",
@@ -14,6 +16,7 @@
   "author": "lzy1960",
   "license": "MIT",
   "devDependencies": {
+    "eslint-plugin-lzy1960": "workspace:*",
     "@lzy1960/eslint-config": "*",
     "bumpp": "^8.2.1",
     "eslint": "^8.23.1",
