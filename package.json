@@ -16,7 +16,7 @@
   "author": "lzy1960",
   "license": "MIT",
   "devDependencies": {
-    "eslint-plugin-lzy1960": "workspace:*",
+    "eslint-plugin-lzy": "workspace:*",
     "@lzy1960/eslint-config": "*",
     "bumpp": "^8.2.1",
     "eslint": "^8.23.1",

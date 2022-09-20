@@ -14,7 +14,7 @@ module.exports = {
   ],
   plugins: [
     'import',
-    'lzy1960',
+    'lzy',
   ],
   rules: {
     semi: ['error', 'never'],
@@ -71,7 +71,7 @@ module.exports = {
     }],
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
 
-    // lzy1960 plugin
-    'lzy1960/object-shorthand-top': 'error',
+    // lzy plugin
+    'lzy/object-shorthand-top': 'error',
   },
 }
