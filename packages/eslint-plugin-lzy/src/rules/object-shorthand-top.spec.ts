@@ -1,8 +1,8 @@
 import { describe, it } from 'vitest'
-import { RuleTester } from '@typescript-eslint/utils/dist/ts-eslint'
 import rule, { RULE_NAME } from './object-shorthand-top'
+import { ruleTester } from '../utils'
 
-describe('happy path', () => {
+describe('objectShorthandTop', () => {
   const valids = [
     `
       const obj = {
@@ -23,9 +23,6 @@ describe('happy path', () => {
     ],
   ]
   it('run', () => {
-    const ruleTester: RuleTester = new RuleTester({
-      parser: require.resolve('@typescript-eslint/parser'),
-    })
     ruleTester.run(RULE_NAME, rule, {
       valid: valids,
       invalid: invalids.map(i => ({
