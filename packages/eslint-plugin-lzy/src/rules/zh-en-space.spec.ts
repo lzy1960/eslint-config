@@ -4,6 +4,9 @@ import { ruleTester } from '../utils'
 
 describe('zhEnSpace', () => {
   const valids = [
+    /**
+     * string
+     */
     '\'\'',                         // blank
     '\'好\'',                       // one char
     '\'"好"\'',                     // string in string
@@ -11,6 +14,15 @@ describe('zhEnSpace', () => {
     '\' OK \'',                     // multi chars with start and end space
     '\'我会 jump 绳\'',              // standard
     'const text = \'是 this 的呢\'', // string in expression
+
+    /**
+     * comment
+     */
+    `
+      // this is 对的
+      /* this 也是
+       right */
+    `,
   ]
   const invalids = [
     [
@@ -32,6 +44,20 @@ describe('zhEnSpace', () => {
       /* eslint-disable-next-line */
       'const text = \'是this的呢\'',
       'const text = \'是 this 的呢\'',
+    ],
+
+    /**
+     * comments
+     */
+    [
+      `
+        // this is错的
+        /* this也是wrong */
+      `,
+      `
+        // this is 错的
+        /* this 也是 wrong */
+      `,
     ],
   ]
   it('run', () => {

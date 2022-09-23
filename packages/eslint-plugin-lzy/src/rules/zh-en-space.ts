@@ -2,6 +2,43 @@ import { createRule } from '../utils'
 
 export const RULE_NAME = 'zh-en-space'
 
+const charCode = (char: string) => char.charCodeAt(0)
+const typeNotSame = (left: string, right: string) => {
+  return (charCode(left) > 255 && charCode(right) <= 255) ||
+    (charCode(left) <= 255 && charCode(right) > 255)
+}
+const isQuote = (char: string) => ['\'', '"', '`'].includes(char)
+const validText = (text: string) => {
+  let pre = ''
+  let result = ''
+  let reportError = false
+  for (let i = 0; i < text.length; i++) {
+    const cur = text[i]
+    if (pre === '') {
+      pre = cur
+      result += cur
+      continue
+    }
+    if (isQuote(cur) || isQuote(pre)) {
+      pre = cur
+      result += cur
+      continue
+    }
+    if (cur === ' ' || cur === '\n') {
+      pre = ''
+      result += cur
+      continue
+    }
+    if (typeNotSame(pre, cur)) {
+      reportError = true
+      result += ' '
+    }
+    pre = cur
+    result += cur
+  }
+  return { result, reportError }
+}
+
 export default createRule({
   name: RULE_NAME,
   meta: {
@@ -20,59 +57,47 @@ export default createRule({
   create: (context) => {
     return {
       // 注释
+      Program (node) {
+        const sourceCode = context.getSourceCode()
+        const comments = sourceCode.getAllComments()
+        comments.forEach((comment) => {
+          const { value, loc, range } = comment
+          console.log(comment)
+          const { result, reportError } = validText(value)
+          if (reportError) {
+            context.report({
+              node,
+              loc: {
+                start: loc.start,
+                end: loc.end,
+              },
+              messageId: 'zhEnSpace',
+              fix (fixer) {
+                console.log(`===========${result}==============`)
+                return fixer.replaceTextRange([range[0], range[1]], result)
+              },
+            })
+          }
+        })
+      },
 
       // 字符串
       Literal (node) {
-        const { value } = node
-        let reportError = false
-        let result = ''
+        const { value, loc, range } = node
 
         if (typeof value !== 'string') return
         if (value.length <= 1) return
 
-        const charCode = (char: string) => char.charCodeAt(0)
-        const typeNotSame = (left: string, right: string) => {
-          return (charCode(left) > 255 && charCode(right) <= 255) ||
-            (charCode(left) <= 255 && charCode(right) > 255)
-        }
-        const isQuote = (char: string) => ['\'', '"', '`'].includes(char)
-        let pre = ''
-        for (let i = 0; i < value.length; i++) {
-          const cur = value[i]
-          if (pre === '') {
-            pre = cur
-            result += cur
-            continue
-          }
-          if (isQuote(cur) || isQuote(pre)) {
-            pre = cur
-            result += cur
-            continue
-          }
-          if (cur === ' ') {
-            pre = ''
-            result += cur
-            continue
-          }
-          if (typeNotSame(pre, cur)) {
-            reportError = true
-            result += ' '
-          }
-          pre = cur
-          result += cur
-        }
+        const { result, reportError } = validText(value)
         if (reportError) {
-          const sourceCode = context.getSourceCode()
           context.report({
             loc: {
-              start: sourceCode.getLocFromIndex(node.range[0] + 1),
-              end: sourceCode.getLocFromIndex(node.range[1] - 1),
-              // start: node.range[0] + 1,
-              // end: node.range[1] - 1,
+              start: loc.start,
+              end: loc.end,
             },
             messageId: 'zhEnSpace',
             fix (fixer) {
-              return fixer.replaceTextRange([node.range[0] + 1, node.range[1] - 1], result)
+              return fixer.replaceTextRange([range[0] + 1, range[1] - 1], result)
             },
           })
         }
