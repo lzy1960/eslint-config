@@ -14,6 +14,11 @@ const validText = (text: string) => {
   let reportError = false
   for (let i = 0; i < text.length; i++) {
     const cur = text[i]
+    if (cur === ' ' || cur === '\n') {
+      pre = ''
+      result += cur
+      continue
+    }
     if (pre === '') {
       pre = cur
       result += cur
@@ -21,11 +26,6 @@ const validText = (text: string) => {
     }
     if (isQuote(cur) || isQuote(pre)) {
       pre = cur
-      result += cur
-      continue
-    }
-    if (cur === ' ' || cur === '\n') {
-      pre = ''
       result += cur
       continue
     }
@@ -61,12 +61,12 @@ export default createRule({
         const sourceCode = context.getSourceCode()
         const comments = sourceCode.getAllComments()
         comments.forEach((comment) => {
-          const { value, loc, range } = comment
-          console.log(comment)
+          const { type, value, loc, range } = comment
           const { result, reportError } = validText(value)
+          console.log(comment)
           if (reportError) {
             context.report({
-              node,
+              node: comment,
               loc: {
                 start: loc.start,
                 end: loc.end,
@@ -74,7 +74,10 @@ export default createRule({
               messageId: 'zhEnSpace',
               fix (fixer) {
                 console.log(`===========${result}==============`)
-                return fixer.replaceTextRange([range[0], range[1]], result)
+                if (type === 'Block') {
+                  return fixer.replaceText(comment, result)
+                }
+                return fixer.replaceTextRange([range[0] + 2, range[1]], result)
               },
             })
           }

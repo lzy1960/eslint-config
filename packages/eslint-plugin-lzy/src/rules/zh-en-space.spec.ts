@@ -18,10 +18,16 @@ describe('zhEnSpace', () => {
     /**
      * comment
      */
+    '// 中文',
+    '/* 中文 */',
+    '// // 注释里的注释',
     `
       // this is 对的
       /* this 也是
        right */
+      /**
+       * this is 文档注释
+       */ 
     `,
   ]
   const invalids = [
@@ -52,11 +58,33 @@ describe('zhEnSpace', () => {
     [
       `
         // this is错的
+      `,
+      `
+        // this is 错的
+      `,
+    ],
+    [
+      `
         /* this也是wrong */
+      `,
+      `
+        /* this 也是 wrong */
+      `,
+    ],
+    [
+      `
+        // this is错的
+        /* this也是wrong */
+        /**
+         * this也是wrong
+         */
       `,
       `
         // this is 错的
         /* this 也是 wrong */
+        /**
+         * this 也是 wrong
+         */
       `,
     ],
   ]
