@@ -1,7 +1,5 @@
-import { ESLintUtils } from '@typescript-eslint/utils'
-const createRule = ESLintUtils.RuleCreator(
-  name => name,
-)
+import { createRule } from '../utils'
+
 export const RULE_NAME = 'object-shorthand-top'
 export default createRule({
   name: RULE_NAME,
@@ -18,7 +16,7 @@ export default createRule({
     schema: [],
   },
   defaultOptions: [],
-  create (context) {
+  create: (context) => {
     return {
       ObjectExpression (node) {
         if (node.properties.length <= 1) {
