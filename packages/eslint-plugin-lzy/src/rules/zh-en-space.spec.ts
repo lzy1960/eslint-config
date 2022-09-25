@@ -29,6 +29,7 @@ describe('zhEnSpace', () => {
        * this is 文档注释
        */ 
     `,
+    '`这是 right 模板字符串 ${123}`',
   ]
   const invalids = [
     [
@@ -50,6 +51,11 @@ describe('zhEnSpace', () => {
       /* eslint-disable-next-line */
       'const text = \'是this的呢\'',
       'const text = \'是 this 的呢\'',
+    ],
+    [
+      /* eslint-disable-next-line */
+      '`这是wrong模板字符串`',
+      '`这是 wrong 模板字符串`',
     ],
 
     /**

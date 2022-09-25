@@ -38,8 +38,8 @@ const validText = (text: string) => {
   }
   return { result, reportError }
 }
-const validLint = (context, node, startOffset: number, endOffset: number) => {
-  const { type, value, range, loc } = node
+const validLint = (context, node, value, startOffset = 0, endOffset = 0) => {
+  const { type, range, loc } = node
   if (typeof type !== 'string') return
   const { result, reportError } = validText(value)
   if (reportError) {
@@ -79,13 +79,19 @@ export default createRule({
         const sourceCode = context.getSourceCode()
         const comments = sourceCode.getAllComments()
         comments.forEach((comment) => {
-          validLint(context, comment, 2, comment.type === 'Block' ? 2 : 0)
+          validLint(context, comment, comment.value, 2, comment.type === 'Block' ? 2 : 0)
         })
       },
 
       // 字符串
       Literal (node) {
-        validLint(context, node, 1, 1)
+        validLint(context, node, node.value, 1, 1)
+      },
+
+      // 模板字符串
+      TemplateElement (node) {
+        console.log(node)
+        validLint(context, node, node.value.cooked, 1, 1)
       },
     }
   },
