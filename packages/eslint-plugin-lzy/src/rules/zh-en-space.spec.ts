@@ -57,10 +57,10 @@ describe('zhEnSpace', () => {
      */
     [
       `
-        // this is错的
+        // 这是wrong
       `,
       `
-        // this is 错的
+        // 这是 wrong
       `,
     ],
     [
@@ -73,17 +73,15 @@ describe('zhEnSpace', () => {
     ],
     [
       `
-        // this is错的
-        /* this也是wrong */
         /**
-         * this也是wrong
+         * 这是wrong
+         * 这也是wrong
          */
       `,
       `
-        // this is 错的
-        /* this 也是 wrong */
         /**
-         * this 也是 wrong
+         * 这是 wrong
+         * 这也是 wrong
          */
       `,
     ],

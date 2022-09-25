@@ -38,6 +38,24 @@ const validText = (text: string) => {
   }
   return { result, reportError }
 }
+const validLint = (context, node, startOffset: number, endOffset: number) => {
+  const { type, value, range, loc } = node
+  if (typeof type !== 'string') return
+  const { result, reportError } = validText(value)
+  if (reportError) {
+    context.report({
+      node,
+      loc: {
+        start: loc.start,
+        end: loc.end,
+      },
+      messageId: 'zhEnSpace',
+      fix (fixer) {
+        return fixer.replaceTextRange([range[0] + startOffset, range[1] - endOffset], result)
+      },
+    })
+  }
+}
 
 export default createRule({
   name: RULE_NAME,
@@ -57,53 +75,17 @@ export default createRule({
   create: (context) => {
     return {
       // 注释
-      Program (node) {
+      Program () {
         const sourceCode = context.getSourceCode()
         const comments = sourceCode.getAllComments()
         comments.forEach((comment) => {
-          const { type, value, loc, range } = comment
-          const { result, reportError } = validText(value)
-          console.log(comment)
-          if (reportError) {
-            context.report({
-              node: comment,
-              loc: {
-                start: loc.start,
-                end: loc.end,
-              },
-              messageId: 'zhEnSpace',
-              fix (fixer) {
-                console.log(`===========${result}==============`)
-                if (type === 'Block') {
-                  return fixer.replaceText(comment, result)
-                }
-                return fixer.replaceTextRange([range[0] + 2, range[1]], result)
-              },
-            })
-          }
+          validLint(context, comment, 2, comment.type === 'Block' ? 2 : 0)
         })
       },
 
       // 字符串
       Literal (node) {
-        const { value, loc, range } = node
-
-        if (typeof value !== 'string') return
-        if (value.length <= 1) return
-
-        const { result, reportError } = validText(value)
-        if (reportError) {
-          context.report({
-            loc: {
-              start: loc.start,
-              end: loc.end,
-            },
-            messageId: 'zhEnSpace',
-            fix (fixer) {
-              return fixer.replaceTextRange([range[0] + 1, range[1] - 1], result)
-            },
-          })
-        }
+        validLint(context, node, 1, 1)
       },
     }
   },
