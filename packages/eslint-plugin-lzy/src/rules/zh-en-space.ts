@@ -1,3 +1,4 @@
+import { RuleContext } from '@typescript-eslint/utils/dist/ts-eslint'
 import { createRule } from '../utils'
 
 export const RULE_NAME = 'zh-en-space'
@@ -38,7 +39,7 @@ const validText = (text: string) => {
   }
   return { result, reportError }
 }
-const validLint = (context, node, value, startOffset = 0, endOffset = 0) => {
+const validLint = (context: RuleContext<'zhEnSpace', unknown[]>, node, value, startOffset = 0, endOffset = 0) => {
   const { type, range, loc } = node
   if (typeof type !== 'string') return
   const { result, reportError } = validText(value)
@@ -69,13 +70,25 @@ export default createRule({
       zhEnSpace: 'Should have space between ZH and EN',
     },
     type: 'problem',
-    schema: [],
+    schema: [
+      {
+        type: 'object',
+        properties: {
+          lintComments: { type: 'boolean' },
+          lintString: { type: 'boolean' },
+          lintTemplate: { type: 'boolean' },
+        },
+        additionalProperties: false,
+      },
+    ],
   },
   defaultOptions: [],
   create: (context) => {
+    const ruleOptions = context.options[0] || {}
     return {
       // 注释
       Program () {
+        if (ruleOptions.lintComments === false) return
         const sourceCode = context.getSourceCode()
         const comments = sourceCode.getAllComments()
         comments.forEach((comment) => {
@@ -85,12 +98,13 @@ export default createRule({
 
       // 字符串
       Literal (node) {
+        if (ruleOptions.lintString === false) return
         validLint(context, node, node.value, 1, 1)
       },
 
       // 模板字符串
       TemplateElement (node) {
-        console.log(node)
+        if (ruleOptions.lintTemplate === false) return
         validLint(context, node, node.value.cooked, 1, 1)
       },
     }

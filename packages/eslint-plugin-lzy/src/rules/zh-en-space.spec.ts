@@ -62,6 +62,7 @@ describe('zhEnSpace', () => {
      * comments
      */
     [
+      /* eslint-disable-next-line */
       `
         // 这是wrong
       `,
@@ -70,6 +71,7 @@ describe('zhEnSpace', () => {
       `,
     ],
     [
+      /* eslint-disable-next-line */
       `
         /* this也是wrong */
       `,
@@ -78,6 +80,7 @@ describe('zhEnSpace', () => {
       `,
     ],
     [
+      /* eslint-disable-next-line */
       `
         /**
          * 这是wrong
