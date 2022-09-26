@@ -19,42 +19,43 @@ export default createRule({
   create: (context) => {
     return {
       ObjectExpression (node) {
-        const len = node.properties.length
-        if (len <= 1) {
-          return
-        }
-        const shorthandArr = node.properties.filter(i => i.shorthand)
-        const longhandArr = node.properties.filter(i => !i.shorthand)
+        const { properties, loc } = node
+        const len = properties.length
+        if (len <= 1) return
+
+        const shorthandArr = properties.filter(i => i.shorthand)
+        const longhandArr = properties.filter(i => !i.shorthand)
         let reportError = false
+
         // 这个循环是为了检测出错误
         for (let i = 1; i < len; i++) {
-          const item = node.properties[i]
-          const preItem = node.properties[i - 1]
+          const item = properties[i]
+          const preItem = properties[i - 1]
           if (!preItem.shorthand && item.shorthand) {
             reportError = true
           }
         }
+
         // 然后做处理
         if (reportError) {
           context.report({
             loc: {
-              start: node.loc.end,
-              end: node.loc.start,
+              start: loc.end,
+              end: loc.start,
             },
             messageId: 'objectShorthandTop',
             *fix (fixer) {
               const sourceCode = context.getSourceCode()
-              const nodeArr = node.properties
+              const sourceText = sourceCode.getText()
+              const nodeArr = properties
               let i = 0
-              for (const item of shorthandArr) {
-                const { range } = item
-                yield fixer.replaceText(nodeArr[i], sourceCode.getText().substring(range[0], range[1]))
-                i += 1
-              }
-              for (const item of longhandArr) {
-                const { range } = item
-                yield fixer.replaceText(nodeArr[i], sourceCode.getText().substring(range[0], range[1]))
-                i += 1
+              for (const _ of [shorthandArr, longhandArr]) {
+                for (const item of _) {
+                  const { range } = item
+                  const text = sourceText.substring(range[0], range[1])
+                  yield fixer.replaceText(nodeArr[i], text)
+                  i += 1
+                }
               }
             },
           })

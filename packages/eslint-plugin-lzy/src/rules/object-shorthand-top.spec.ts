@@ -13,6 +13,7 @@ describe('objectShorthandTop', () => {
     'const obj = {name, hobby, age: 18, score: 90}',
   ]
   const invalids = [
+    // formatted
     [
       `
         const obj = {
@@ -31,6 +32,7 @@ describe('objectShorthandTop', () => {
         }
       `,
     ],
+    // inline
     [
       'const obj = {score: 90, name, hobby, age: 18}',
       'const obj = {name, hobby, score: 90, age: 18}',
