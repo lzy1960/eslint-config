@@ -10,16 +10,30 @@ describe('objectShorthandTop', () => {
         age,
       }
     `,
+    'const obj = {name, hobby, age: 18, score: 90}',
   ]
   const invalids = [
     [
       `
         const obj = {
+          score: 90,
           age: 19,
           name,
           hobby,
         }
       `,
+      `
+        const obj = {
+          name,
+          hobby,
+          score: 90,
+          age: 19,
+        }
+      `,
+    ],
+    [
+      'const obj = {score: 90, name, hobby, age: 18}',
+      'const obj = {name, hobby, score: 90, age: 18}',
     ],
   ]
   it('run', () => {
@@ -27,7 +41,7 @@ describe('objectShorthandTop', () => {
       valid: valids,
       invalid: invalids.map(i => ({
         code: i[0],
-        // output: i[1],
+        output: i[1],
         errors: [{ messageId: 'objectShorthandTop' }],
       })),
     })
