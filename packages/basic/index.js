@@ -70,6 +70,13 @@ module.exports = {
       allowSamePrecedence: true,
     }],
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    'capitalized-comments': 'off',
+    'spaced-comment': ['error', 'always'],
+    'multiline-comment-style': 'off',
+    'no-inline-comments': 'off',
+    'spaced-comment': ['error', 'always', { line: { exceptions: ['-', '+', '='] }, block: { exceptions: ['*'] } }],
+    'line-comment-position': 'off',
+    'lines-around-comment': 'off',
 
     // lzy plugin
     'lzy/object-shorthand-top': 'error',
