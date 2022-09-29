@@ -9,8 +9,7 @@ const typeNotSame = (left: string, right: string) => {
     (charCode(left) <= 255 && charCode(right) > 255)
 }
 const isQuote = (char: string) => ['\'', '"', '`'].includes(char)
-const validText = (text: string) => {
-  if (!text) return
+const validText = (text: string): { result: string; reportError: boolean } => {
   let pre = ''
   let result = ''
   let reportError = false
@@ -93,6 +92,7 @@ export default createRule({
         const sourceCode = context.getSourceCode()
         const comments = sourceCode.getAllComments()
         comments.forEach((comment) => {
+          if (!comment.value) return
           validLint(context, comment, comment.value, 2, comment.type === 'Block' ? 2 : 0)
         })
       },
@@ -100,11 +100,13 @@ export default createRule({
       // 字符串
       Literal (node) {
         if (ruleOptions.lintString === false) return
+        if (!node.value) return
         validLint(context, node, node.value, 1, 1)
       },
 
       // 模板字符串
       TemplateElement (node) {
+        if (!node.value) return
         if (ruleOptions.lintTemplate === false) return
         validLint(context, node, node.value.cooked, 1, 1)
       },
