@@ -10,6 +10,7 @@ const typeNotSame = (left: string, right: string) => {
 }
 const isQuote = (char: string) => ['\'', '"', '`'].includes(char)
 const validText = (text: string) => {
+  if (!text) return
   let pre = ''
   let result = ''
   let reportError = false
