@@ -1,6 +1,6 @@
 {
   "name": "@lzy1960/eslint-config-basic",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "index.js",
   "keywords": [
     "eslint-config"
