@@ -22,6 +22,6 @@ module.exports = {
     '@typescript-eslint/keyword-spacing': ['error', { before: true, after: true }],
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/ban-types': 'off',
-    '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
+    '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description', 'ts-expect-error': false }],
   },
 }
