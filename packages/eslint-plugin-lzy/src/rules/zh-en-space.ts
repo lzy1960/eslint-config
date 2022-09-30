@@ -9,6 +9,8 @@ const typeNotSame = (left: string, right: string) => {
     (charCode(left) <= 255 && charCode(right) > 255)
 }
 const isQuote = (char: string) => ['\'', '"', '`'].includes(char)
+const isZhPunctuation = (char: string) => ['。', '，', '“', '”', '（', '）', '：', '；', '‘', '’', '？', '《', '》', '【', '】'].includes(char)
+const isDate = (pre: string, cur: string) => ['年', '月', '日'].includes(pre) && /^[0-9]$/.test(cur)
 const validText = (text: string): { result: string; reportError: boolean } => {
   let pre = ''
   let result = ''
@@ -25,7 +27,7 @@ const validText = (text: string): { result: string; reportError: boolean } => {
       result += cur
       continue
     }
-    if (isQuote(cur) || isQuote(pre)) {
+    if (isQuote(cur) || isQuote(pre) || isZhPunctuation(cur) || isZhPunctuation(pre) || isDate(pre, cur) || isDate(cur, pre)) {
       pre = cur
       result += cur
       continue

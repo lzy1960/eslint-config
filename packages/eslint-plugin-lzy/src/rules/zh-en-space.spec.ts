@@ -14,6 +14,7 @@ describe('zhEnSpace', () => {
     '\' OK \'',                     // multi chars with start and end space
     '\'我会 jump 绳\'',              // standard
     'const text = \'是 this 的呢\'', // string in expression
+    '\'2022年2月12日\'',             // date
 
     /**
      * comment
@@ -29,6 +30,7 @@ describe('zhEnSpace', () => {
        * this is 文档注释
        */ 
     `,
+    '// 2022年2月12日',
     '`这是 right 模板字符串 ${123}`',
   ]
   const invalids = [
