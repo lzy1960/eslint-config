@@ -6,6 +6,7 @@
     "eslint-config"
   ],
   "author": "lzy1960",
+  "homepage": "https://github.com/lzy1960/eslint-config.git",
   "license": "MIT",
   "description": "",
   "dependencies": {

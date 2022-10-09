@@ -13,6 +13,7 @@
     "eslint",
     "eslint-config"
   ],
+  "homepage": "https://github.com/lzy1960/eslint-config.git",
   "author": "lzy1960",
   "license": "MIT",
   "devDependencies": {

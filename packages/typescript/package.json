@@ -12,6 +12,7 @@
     "@typescript-eslint/parser": "^5.39.0"
   },
   "author": "lzy1960",
+  "homepage": "https://github.com/lzy1960/eslint-config.git",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^8.25.0"

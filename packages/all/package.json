@@ -14,6 +14,7 @@
     "eslint-plugin-import": "^2.26.0"
   },
   "author": "lzy1960",
+  "homepage": "https://github.com/lzy1960/eslint-config.git",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^8.23.0"

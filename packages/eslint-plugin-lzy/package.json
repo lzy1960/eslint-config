@@ -16,6 +16,7 @@
   },
   "keywords": [],
   "author": "lzy1960",
+  "homepage": "https://github.com/lzy1960/eslint-config.git",
   "license": "MIT",
   "devDependencies": {
     "unbuild": "^0.8.11",
