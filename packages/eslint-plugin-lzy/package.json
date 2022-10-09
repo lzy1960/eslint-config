@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-lzy",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
