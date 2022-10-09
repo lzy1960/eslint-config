@@ -9,8 +9,8 @@
   "dependencies": {
     "@lzy1960/eslint-config-basic": "workspace:*",
     "@lzy1960/eslint-config-vue": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.37.0",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
     "eslint-plugin-import": "^2.26.0"
   },
   "author": "lzy1960",

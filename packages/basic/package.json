@@ -13,6 +13,6 @@
     "eslint-plugin-lzy": "workspace:*"
   },
   "devDependencies": {
-    "eslint": "^8.23.0"
+    "eslint": "^8.25.0"
   }
 }
