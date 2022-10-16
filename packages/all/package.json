@@ -9,14 +9,14 @@
   "dependencies": {
     "@lzy1960/eslint-config-basic": "workspace:*",
     "@lzy1960/eslint-config-vue": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.39.0",
-    "@typescript-eslint/parser": "^5.39.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
     "eslint-plugin-import": "^2.26.0"
   },
   "author": "lzy1960",
   "homepage": "https://github.com/lzy1960/eslint-config.git",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^8.23.0"
+    "eslint": "^8.25.0"
   }
 }
