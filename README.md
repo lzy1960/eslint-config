@@ -33,7 +33,7 @@
 
    ```js
    // 错误
-   // Should have space between ZH and EN
+   // Shorthand attribute must be the top
    const testObj = {
      hobby,
      foo: 'foo',
@@ -53,20 +53,20 @@
 
    ```js
    // 错误: Shorthand attribute must be the top
-   // 这是wrong
+   // 注释contain空格
    /* this也是wrong */
    /**
-    * 这是wrong
-    * 这也是wrong
+    * 注释contain空格
+    * 注释cannot包含空格
     */
    const text = '我会jump绳'
 
    // 正确
-   // 这是 wrong
+   // 注释 contain 空格
    /* this 也是 wrong */
    /**
-    * 这是 wrong
-    * 这也是 wrong
+    * 注释 contain 空格
+    * 注释 cannot 包含空格
     */
    const text = '我会 jump 绳'
    ```
