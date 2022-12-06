@@ -20,9 +20,9 @@
   "license": "MIT",
   "devDependencies": {
     "unbuild": "^0.8.11",
-    "vitest": "^0.24.3"
+    "vitest": "^0.24.5"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^5.40.0"
+    "@typescript-eslint/utils": "^5.45.1"
   }
 }
