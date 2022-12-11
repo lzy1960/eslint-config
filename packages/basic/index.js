@@ -47,7 +47,6 @@ module.exports = {
     'default-param-last': 'error',
     'prefer-spread': 'error',
     'prefer-arrow-callback': 'error',
-    'arrow-spacing': 'error',
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'no-useless-constructor': 'error',
     'import/no-mutable-exports': 'error',
@@ -59,7 +58,6 @@ module.exports = {
     'operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before', '|>': 'before' } }],
     'no-unused-vars': 'error',
     'no-case-declarations': 'error',
-    'keyword-spacing': 'error',
     'no-unneeded-ternary': ['error', { defaultAssignment: true }],
     'no-mixed-operators': ['error', {
       groups: [
@@ -71,12 +69,17 @@ module.exports = {
     }],
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
     'capitalized-comments': 'off',
-    'spaced-comment': ['error', 'always'],
     'multiline-comment-style': 'off',
     'no-inline-comments': 'off',
     'spaced-comment': ['error', 'always', { line: { exceptions: ['-', '+', '='] }, block: { exceptions: ['*'] } }],
     'line-comment-position': 'off',
     'lines-around-comment': 'off',
+    'no-spaced-func': 'error',
+    'no-redeclare': 'error',
+    'no-dupe-keys': 'error',
+    'no-dupe-args': 'error',
+    'no-duplicate-case': 'error',
+    'no-func-assign': 'error',
 
     // lzy plugin
     'lzy/object-shorthand-top': 'error',

@@ -18,8 +18,6 @@ module.exports = {
     '@typescript-eslint/object-curly-spacing': ['error', 'always'],
     'comma-spacing': 'off',
     '@typescript-eslint/comma-spacing': ['error', { before: false, after: true }],
-    'keyword-spacing': 'off',
-    '@typescript-eslint/keyword-spacing': ['error', { before: true, after: true }],
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description', 'ts-expect-error': false }],
