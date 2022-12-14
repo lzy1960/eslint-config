@@ -83,6 +83,6 @@ module.exports = {
 
     // lzy plugin
     'lzy/object-shorthand-top': 'error',
-    'lzy/zh-en-space': ['error', { lintComments: true, lintTemplate: true, lintString: true }],
+    'lzy/zh-en-space': ['error', { lintComments: true, lintTemplate: true, lintString: false }],
   },
 }
