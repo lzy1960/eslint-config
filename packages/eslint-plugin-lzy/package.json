@@ -23,6 +23,6 @@
     "vitest": "^0.24.5"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^5.45.1"
+    "@typescript-eslint/utils": "^5.62.0"
   }
 }

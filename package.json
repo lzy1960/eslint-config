@@ -17,10 +17,10 @@
   "author": "lzy1960",
   "license": "MIT",
   "devDependencies": {
-    "@lzy1960/eslint-config": "*",
+    "@lzy1960/eslint-config": "^0.1.13",
     "bumpp": "^8.2.1",
-    "eslint": "^8.25.0",
+    "eslint": "^8.47.0",
     "eslint-plugin-lzy": "workspace:*",
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.5"
   }
 }

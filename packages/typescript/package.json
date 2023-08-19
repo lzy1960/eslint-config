@@ -8,13 +8,13 @@
   ],
   "dependencies": {
     "@lzy1960/eslint-config-basic": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.45.1",
-    "@typescript-eslint/parser": "^5.45.1"
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0"
   },
   "author": "lzy1960",
   "homepage": "https://github.com/lzy1960/eslint-config.git",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^8.29.0"
+    "eslint": "^8.47.0"
   }
 }
