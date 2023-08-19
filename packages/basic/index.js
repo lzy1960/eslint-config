@@ -17,7 +17,7 @@ module.exports = {
     'lzy',
   ],
   rules: {
-    semi: ['error', 'never'],
+    semi: ['error', 'always'],
     quotes: ['error', 'single'],
     indent: ['error', 2, { SwitchCase: 1 }],
     'keyword-spacing': ['error', { before: true, after: true }],

@@ -9,7 +9,7 @@ module.exports = {
   ],
   rules: {
     semi: 'off',
-    '@typescript-eslint/semi': ['error', 'never'],
+    '@typescript-eslint/semi': ['error', 'always'],
     'keyword-spacing': 'off',
     '@typescript-eslint/keyword-spacing': ['error', { before: true, after: true }],
     'brace-style': 'off',
