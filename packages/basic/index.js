@@ -85,4 +85,4 @@ module.exports = {
     'lzy/object-shorthand-top': 'error',
     'lzy/zh-en-space': ['error', { lintComments: true, lintTemplate: true, lintString: false }],
   },
-}
+};

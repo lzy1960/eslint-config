@@ -1,6 +1,6 @@
-import { describe, it } from 'vitest'
-import rule, { RULE_NAME } from './zh-en-space'
-import { ruleTester } from '../utils'
+import { describe, it } from 'vitest';
+import rule, { RULE_NAME } from './zh-en-space';
+import { ruleTester } from '../utils';
 
 describe('zhEnSpace', () => {
   const valids = [
@@ -32,7 +32,7 @@ describe('zhEnSpace', () => {
     `,
     '// 2022年2月12日',
     '`这是 right 模板字符串 ${123}`',
-  ]
+  ];
   const invalids = [
     [
       /* eslint-disable-next-line */
@@ -96,7 +96,7 @@ describe('zhEnSpace', () => {
          */
       `,
     ],
-  ]
+  ];
   it('run', () => {
     ruleTester.run(RULE_NAME, rule, {
       valid: valids,
@@ -105,6 +105,6 @@ describe('zhEnSpace', () => {
         output: i[1],
         errors: [{ messageId: 'zhEnSpace' }],
       })),
-    })
-  })
-})
+    });
+  });
+});

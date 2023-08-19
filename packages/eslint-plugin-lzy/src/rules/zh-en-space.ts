@@ -1,50 +1,50 @@
-import { RuleContext } from '@typescript-eslint/utils/dist/ts-eslint'
-import { createRule } from '../utils'
+import { RuleContext } from '@typescript-eslint/utils/dist/ts-eslint';
+import { createRule } from '../utils';
 
-export const RULE_NAME = 'zh-en-space'
+export const RULE_NAME = 'zh-en-space';
 
-const charCode = (char: string) => char.charCodeAt(0)
+const charCode = (char: string) => char.charCodeAt(0);
 const typeNotSame = (left: string, right: string) => {
   return (charCode(left) > 255 && charCode(right) <= 255) ||
-    (charCode(left) <= 255 && charCode(right) > 255)
-}
-const isQuote = (char: string) => ['\'', '"', '`'].includes(char)
-const isZhPunctuation = (char: string) => ['。', '，', '“', '”', '（', '）', '：', '；', '‘', '’', '？', '《', '》', '【', '】'].includes(char)
-const isDate = (pre: string, cur: string) => ['年', '月', '日'].includes(pre) && /^[0-9]$/.test(cur)
+    (charCode(left) <= 255 && charCode(right) > 255);
+};
+const isQuote = (char: string) => ['\'', '"', '`'].includes(char);
+const isZhPunctuation = (char: string) => ['。', '，', '“', '”', '（', '）', '：', '；', '‘', '’', '？', '《', '》', '【', '】'].includes(char);
+const isDate = (pre: string, cur: string) => ['年', '月', '日'].includes(pre) && /^[0-9]$/.test(cur);
 const validText = (text: string): { result: string; reportError: boolean } => {
-  let pre = ''
-  let result = ''
-  let reportError = false
+  let pre = '';
+  let result = '';
+  let reportError = false;
   for (let i = 0; i < text.length; i++) {
-    const cur = text[i]
+    const cur = text[i];
     if (cur === ' ' || cur === '\n') {
-      pre = ''
-      result += cur
-      continue
+      pre = '';
+      result += cur;
+      continue;
     }
     if (pre === '') {
-      pre = cur
-      result += cur
-      continue
+      pre = cur;
+      result += cur;
+      continue;
     }
     if (isQuote(cur) || isQuote(pre) || isZhPunctuation(cur) || isZhPunctuation(pre) || isDate(pre, cur) || isDate(cur, pre)) {
-      pre = cur
-      result += cur
-      continue
+      pre = cur;
+      result += cur;
+      continue;
     }
     if (typeNotSame(pre, cur)) {
-      reportError = true
-      result += ' '
+      reportError = true;
+      result += ' ';
     }
-    pre = cur
-    result += cur
+    pre = cur;
+    result += cur;
   }
-  return { result, reportError }
-}
+  return { result, reportError };
+};
 const validLint = (context: RuleContext<'zhEnSpace', unknown[]>, node, value, startOffset = 0, endOffset = 0) => {
-  const { type, range, loc } = node
-  if (typeof type !== 'string') return
-  const { result, reportError } = validText(value)
+  const { type, range, loc } = node;
+  if (typeof type !== 'string') return;
+  const { result, reportError } = validText(value);
   if (reportError) {
     context.report({
       node,
@@ -54,11 +54,11 @@ const validLint = (context: RuleContext<'zhEnSpace', unknown[]>, node, value, st
       },
       messageId: 'zhEnSpace',
       fix (fixer) {
-        return fixer.replaceTextRange([range[0] + startOffset, range[1] - endOffset], result)
+        return fixer.replaceTextRange([range[0] + startOffset, range[1] - endOffset], result);
       },
-    })
+    });
   }
-}
+};
 
 export default createRule({
   name: RULE_NAME,
@@ -86,32 +86,32 @@ export default createRule({
   },
   defaultOptions: [],
   create: (context) => {
-    const ruleOptions = context.options[0] || {}
+    const ruleOptions = context.options[0] || {};
     return {
       // 注释
       Program () {
-        if (ruleOptions.lintComments === false) return
-        const sourceCode = context.getSourceCode()
-        const comments = sourceCode.getAllComments()
+        if (ruleOptions.lintComments === false) return;
+        const sourceCode = context.getSourceCode();
+        const comments = sourceCode.getAllComments();
         comments.forEach((comment) => {
-          if (!comment.value) return
-          validLint(context, comment, comment.value, 2, comment.type === 'Block' ? 2 : 0)
-        })
+          if (!comment.value) return;
+          validLint(context, comment, comment.value, 2, comment.type === 'Block' ? 2 : 0);
+        });
       },
 
       // 字符串
       Literal (node) {
-        if (ruleOptions.lintString === false) return
-        if (!node.value) return
-        validLint(context, node, node.value, 1, 1)
+        if (ruleOptions.lintString === false) return;
+        if (!node.value) return;
+        validLint(context, node, node.value, 1, 1);
       },
 
       // 模板字符串
       TemplateElement (node) {
-        if (!node.value) return
-        if (ruleOptions.lintTemplate === false) return
-        validLint(context, node, node.value.cooked, 1, 1)
+        if (!node.value) return;
+        if (ruleOptions.lintTemplate === false) return;
+        validLint(context, node, node.value.cooked, 1, 1);
       },
-    }
+    };
   },
-})
+});
