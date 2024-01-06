@@ -11,9 +11,9 @@
   "license": "MIT",
   "dependencies": {
     "@lzy1960/eslint-config-typescript": "workspace:*",
-    "eslint-plugin-vue": "^9.17.0"
+    "eslint-plugin-vue": "^9.19.2"
   },
   "devDependencies": {
-    "eslint": "^8.47.0"
+    "eslint": "^8.56.0"
   }
 }

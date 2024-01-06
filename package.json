@@ -17,9 +17,9 @@
   "author": "lzy1960",
   "license": "MIT",
   "devDependencies": {
-    "@lzy1960/eslint-config": "^0.1.13",
+    "@lzy1960/eslint-config": "workspace:^",
     "bumpp": "^8.2.1",
-    "eslint": "^8.47.0",
+    "eslint": "^8.56.0",
     "eslint-plugin-lzy": "workspace:*",
     "typescript": "^4.9.5"
   }
