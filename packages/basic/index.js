@@ -49,8 +49,6 @@ module.exports = {
     'prefer-arrow-callback': 'error',
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'no-useless-constructor': 'error',
-    'import/no-mutable-exports': 'error',
-    'import/first': 'error',
     'object-curly-newline': 'error',
     'dot-notation': ['error', { allowKeywords: true }],
     'one-var': ['error', { initialized: 'never' }],
@@ -80,6 +78,23 @@ module.exports = {
     'no-dupe-args': 'error',
     'no-duplicate-case': 'error',
     'no-func-assign': 'error',
+
+    // import
+    'import/no-empty-named-blocks': 'error',
+    'import/no-import-module-exports': 'error',
+    'import/no-absolute-path': 'error',
+    'import/no-relative-packages': 'error',
+    'import/no-useless-path-segments': 'error',
+    'import/consistent-type-specifier-style': 'error',
+    'import/no-mutable-exports': 'error',
+    'import/first': 'error',
+    'import/imports-first': 'error',
+    'import/newline-after-import': ['warn', { count: 1, exactCount: true, considerComments: true }],
+    'import/no-duplicates': 'error',
+    'import/no-namespace': 'error',
+    'import/order': ['warn', {
+      'newlines-between': 'always',
+    }],
 
     // lzy plugin
     'lzy/object-shorthand-top': 'error',
