@@ -11,7 +11,8 @@
   "description": "",
   "dependencies": {
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-lzy": "workspace:*"
+    "eslint-plugin-lzy": "workspace:*",
+    "@stylistic/eslint-plugin-js": "^1.7.0"
   },
   "devDependencies": {
     "eslint": "^8.56.0"

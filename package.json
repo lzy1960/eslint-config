@@ -19,7 +19,7 @@
   "devDependencies": {
     "@lzy1960/eslint-config": "workspace:^",
     "bumpp": "^8.2.1",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "eslint-plugin-lzy": "workspace:*",
     "typescript": "^4.9.5"
   }
