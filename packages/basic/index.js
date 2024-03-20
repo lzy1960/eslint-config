@@ -44,8 +44,10 @@ module.exports = {
     /**
      * 在箭头函数中强制箭头前后的间距一致
      */
-    '@stylistic/js/arrow-spacing': ['error', { before: true,
-      after: true }],
+    '@stylistic/js/arrow-spacing': ['error', {
+      before: true,
+      after: true,
+    }],
 
     /**
      * 在打开块之后和关闭块之前禁止或强制块内有空格
@@ -65,8 +67,10 @@ module.exports = {
     /**
      * 强制逗号前后的间距一致
      */
-    '@stylistic/js/comma-spacing': ['error', { before: false,
-      after: true }],
+    '@stylistic/js/comma-spacing': ['error', {
+      before: false,
+      after: true,
+    }],
 
     /**
      * 强制使用一致的逗号风格
@@ -134,17 +138,21 @@ module.exports = {
     /**
      * 强制对象文字属性中的键和值之间的间距一致
      */
-    '@stylistic/js/key-spacing': ['error', { beforeColon: false,
+    '@stylistic/js/key-spacing': ['error', {
+      beforeColon: false,
       afterColon: true,
-      mode: 'strict' }],
+      mode: 'strict',
+    }],
 
     /**
      * 在关键字前后强制执行一致的间距
      *
      * 例：`} else {`
      */
-    '@stylistic/js/keyword-spacing': ['error', { before: true,
-      after: true }],
+    '@stylistic/js/keyword-spacing': ['error', {
+      before: true,
+      after: true,
+    }],
 
     /**
      * 强制执行一致的换行样式
@@ -154,9 +162,11 @@ module.exports = {
     /**
      * 注释周围需要空行
      */
-    '@stylistic/js/lines-around-comment': ['error', { beforeBlockComment: true,
+    '@stylistic/js/lines-around-comment': ['error', {
+      beforeBlockComment: true,
       allowBlockStart: true,
-      allowBlockEnd: true }],
+      allowBlockEnd: true,
+    }],
 
     /**
      * 要求或禁止类成员之间有空行
@@ -166,8 +176,10 @@ module.exports = {
     /**
      * 强制执行最大行长度
      */
-    '@stylistic/js/max-len': ['warn', { code: 80,
-      ignoreComments: true }],
+    '@stylistic/js/max-len': ['warn', {
+      code: 80,
+      ignoreComments: true,
+    }],
 
     /**
      * 强制每行允许的最大语句数
@@ -192,8 +204,10 @@ module.exports = {
     /**
      * 禁止使用可能与比较混淆的箭头函数
      */
-    '@stylistic/js/no-confusing-arrow': ['error', { allowParens: true,
-      onlyOneSimpleParam: false }],
+    '@stylistic/js/no-confusing-arrow': ['error', {
+      allowParens: true,
+      onlyOneSimpleParam: false,
+    }],
 
     /**
      * 禁止使用不必要的括号
@@ -280,14 +294,22 @@ module.exports = {
     /**
      * 强制执行一致的换行样式
      */
-    '@stylistic/js/operator-linebreak': ['error', 'after', { overrides: { '?': 'before',
-      ':': 'before',
-      '|>': 'before' } }],
+    '@stylistic/js/operator-linebreak': ['error', 'after', {
+      overrides: {
+        '?': 'before',
+        ':': 'before',
+        '|>': 'before',
+      },
+    }],
 
     /**
      * 要求或禁止块内填充
      */
-    '@stylistic/js/padded-blocks': ['error'],
+    '@stylistic/js/padded-blocks': ['error', {
+      blocks: 'never',
+      classes: 'always',
+      switches: 'never',
+    }],
 
     /**
      * 要求或禁止语句之间的填充行
@@ -356,8 +378,10 @@ module.exports = {
     /**
      * 在注释中的“//”或“/*”之后强制执行一致的间距
      */
-    '@stylistic/js/spaced-comment': ['error', 'always', { line: { exceptions: ['-', '+', '='] },
-      block: { exceptions: ['*'] } }],
+    '@stylistic/js/spaced-comment': ['error', 'always', {
+      line: { exceptions: ['-', '+', '='] },
+      block: { exceptions: ['*'] },
+    }],
 
     /**
      * 强制 switch 语句的冒号周围有空格
@@ -408,7 +432,7 @@ module.exports = {
     'default-param-last': 'error',
     'prefer-spread': 'error',
     'prefer-arrow-callback': 'error',
-    'no-useless-constructor': 'error',
+    'no-useless-constructor': 'warn',
     'dot-notation': ['error', { allowKeywords: true }],
     'one-var': ['error', { initialized: 'never' }],
     'no-unused-vars': 'error',
@@ -435,9 +459,11 @@ module.exports = {
     'import/no-mutable-exports': 'error',
     'import/first': 'error',
     'import/imports-first': 'error',
-    'import/newline-after-import': ['warn', { count: 1,
+    'import/newline-after-import': ['warn', {
+      count: 1,
       exactCount: true,
-      considerComments: true }],
+      considerComments: true,
+    }],
     'import/no-duplicates': 'error',
 
     /**
@@ -452,8 +478,10 @@ module.exports = {
 
     // lzy plugin
     'lzy/object-shorthand-top': 'error',
-    'lzy/zh-en-space': ['error', { lintComments: true,
+    'lzy/zh-en-space': ['error', {
+      lintComments: true,
       lintTemplate: true,
-      lintString: false }],
+      lintString: false,
+    }],
   },
 };
