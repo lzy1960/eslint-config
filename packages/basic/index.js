@@ -177,7 +177,7 @@ module.exports = {
      * 强制执行最大行长度
      */
     '@stylistic/js/max-len': ['warn', {
-      code: 80,
+      code: 120,
       ignoreComments: true,
     }],
 
@@ -206,7 +206,7 @@ module.exports = {
      */
     '@stylistic/js/no-confusing-arrow': ['error', {
       allowParens: true,
-      onlyOneSimpleParam: false,
+      onlyOneSimpleParam: true,
     }],
 
     /**
@@ -284,7 +284,7 @@ module.exports = {
     /**
      * 强制将对象属性放置在单独的行上
      */
-    '@stylistic/js/object-property-newline': ['error'],
+    '@stylistic/js/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
 
     /**
      * 要求或禁止变量声明周围换行

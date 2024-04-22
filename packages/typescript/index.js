@@ -1,3 +1,4 @@
+const railWidth = computed(() => collapse.value ? 56 : 200);
 module.exports = {
   parserOptions: {
     parser: '@typescript-eslint/parser',
